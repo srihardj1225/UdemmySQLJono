@@ -208,6 +208,50 @@ DESC products;
 
 ALTER TABLE products
 	ADD PRIMARY KEY(id);
+SHOW TABLES;
+SHOW CREATE TABLE products;    
+
+
+/*kalo input 2 data akan redudance*/
+INSERT INTO products(id,name,price,quantity) VALUES('P0001','Mie Ayam Original', 15000, 100) ;
+
+/*WHERE CLAUSE, WHERE CLAUSE, WHERE CLAUSE, WHERE CLAUSE, WHERE CLAUSE, WHERE CLAUSE, */
+SELECT *FROM products;
+SELECT *FROM products WHERE price=15000;
+SELECT *FROM products WHERE quantity=100;
+SELECT *FROM products WHERE name='Mie Ayam Original';
+
+
+/*Update data Update data Update data Update data Update data Update data */
+/*disini akan update data yaitu sebagai contoh tambah colom dengan kategori semacam list box
+
+*/
+ALTER TABLE products 
+ADD COLUMN category ENUM ('Makanan','Minuman','Lain-Lain')
+AFTER NAME;
+DESCRIBE products;
+
+UPDATE products
+SET category = 'Makanan'
+WHERE id = 'P0001';
+
+DESCRIBE products;
+SELECT *FROM products;
+
+/* jadi semacam combo box gitu hasilnya*/
+
+/* kita bisa memberikan SET Category dengan 2 kolom */
+
+UPDATE products
+SET category    = 'Makanan',
+    description = 'Mie Ayam Original + Ceker'
+WHERE id = 'P0003';
+
+/*disini terjadi erro karena sebelum statement ini ada */
+
+SELECT *FROM products;
+
+
 
 
 
