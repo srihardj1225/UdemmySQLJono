@@ -224,7 +224,6 @@ SELECT *FROM products WHERE name='Mie Ayam Original';
 
 /*Update data Update data Update data Update data Update data Update data */
 /*disini akan update data yaitu sebagai contoh tambah colom dengan kategori semacam list box
-
 */
 ALTER TABLE products 
 ADD COLUMN category ENUM ('Makanan','Minuman','Lain-Lain')
@@ -247,21 +246,55 @@ SET category    = 'Makanan',
     description = 'Mie Ayam Original + Ceker'
 WHERE id = 'P0003';
 
-/*disini terjadi erro karena sebelum statement ini ada */
+/*disini terjadi error karena sebelum statement ini ada */
 
 SELECT *FROM products;
 
+/*UPDATE dengan data yang sudah ada, contoh nominal di tambah 5000*/
+UPDATE products
+SET price = price - 5000
+WHERE id = 'P0001';
 
+/* DELETE data DELETE data DELETE data DELETE data DELETE data DELETE data DELETE data */
+DELETE
+FROM products
+WHERE id = 'P0005';
 
+SELECT *FROM products;
 
+INSERT INTO products (id,name,category,description,price,quantity) VALUES ('P0005','Mie Bakso Polos','Makanan','Tanpa Saos dan Kecap','13000','200');
 
+SELECT *FROM products;
 
+/* ini coding belum bisa euy*/
 
+DELETE
+FROM product
+WHERE description = 'Tanpa Saos dan Kecap';
 
-  
-  
+SELECT * FROM products;
 
+/*Belajar alias gunanya supaya penyebutan nama kolom dalam syntax sqlnya di Singkat*/
+/* ALIAS KOLOM */
+SELECT	id AS  kd,
+		name AS nm,
+        category AS ct,
+        description AS dcp,
+        price AS prc,
+        quantity AS qty,
+        created_at AS ctat
+FROM products;
 
+/* nama tablennya kepanjangan dan harus disingkat karena nanti waktu join table berguna kalo disingkat*/
+/* ALIAS TABLE */
+SELECT	p.id AS  kd,
+		p.name AS nm,
+        p.category AS ct,
+        p.description AS dcp,
+        p.price AS prc,
+        p.quantity AS qty,
+        p.created_at AS ctat
+FROM products AS p;
 
 
 
